@@ -1,0 +1,129 @@
+/* ── Header & Nav Layout ── */
+header {
+  background-color: var(--clr-primary-light);
+  position: relative;
+  top: 0;
+  z-index: 10;
+  font-family: var(--ff-header);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* links sit on the right */
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+/* ── Nav Links ── */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.menu-links a {
+  color: var(--clr-grey);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.menu-links a:hover {
+  color: var(--clr-secondary);
+}
+
+/* ── CTA Button (Free Estimate) ── */
+.cta-link {
+  background-color: var(--clr-secondary);
+  color: var(--clr-grey) !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.2s ease !important;
+}
+
+.cta-link:hover {
+  background-color: #c73652 !important;
+  color: #fff !important;
+}
+
+/* ── Hamburger Button ── */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Build the 3 bars using ::before, ::after, and a middle shadow */
+.menu-toggle::before,
+.menu-toggle::after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  border-radius: 3px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Middle bar via box-shadow on ::before */
+.menu-toggle::before {
+  box-shadow: 0 8px 0 #fff;
+}
+
+/* ── Hamburger X Animation ── */
+.menu-toggle.active::before {
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: none;
+}
+
+.menu-toggle.active::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ── Mobile Styles ── */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    .menu-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .menu-links a {
+      display: block;
+      padding: 0.85rem 2rem;
+      border-bottom: 1px solid var(--clr-primary);
+    }
+
+    .menu-links a:hover {
+      background-color: var(--clr-primary);
+    }
+
+    /* CTA still stands out on mobile */
+    .cta-link {
+      display: inline-block;
+      border-radius: 4px;
+    }
+  }
+}
+/* ── Mobile Styles ── */
