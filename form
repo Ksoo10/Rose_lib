@@ -1,0 +1,46 @@
+.form-container {
+  background: white;
+  padding: 2rem 2em;
+  margin: 1rem;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 500px;
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  form > label {
+    font-family: var(--ff-header);
+    color: var(--clr-primary);
+    font-weight: 800;
+    margin-top: 0.5rem;
+  }
+  input#name,
+  input#email,
+  textarea#msg,
+  input#phone,
+  select {
+    border: none;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid #cccc;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #999;
+    font-size: 0.9rem;
+    opacity: 1; /* Firefox reduces opacity by default */
+  }
+}
+
+input#name,
+input#email,
+textarea#msg:hover {
+  border: 1px solid var(--clr-primary);
+}
